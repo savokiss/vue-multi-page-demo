@@ -1,7 +1,7 @@
 <template>
-  <div class="about w-100">
+  <div class="about w-100 h-100">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <AppHeader current="home"></AppHeader>
+      <AppHeader current="about"></AppHeader>
 
       <main role="main" class="inner cover">
         <h1 class="cover-heading">{{ $options.name }}</h1>
@@ -20,7 +20,7 @@
 import AppHeader from '@/layouts/AppHeader.vue'
 import AppFooter from '@/layouts/AppFooter.vue'
 export default {
-  name: 'home',
+  name: 'about',
   components: {
     AppHeader,
     AppFooter

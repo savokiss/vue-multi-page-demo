@@ -3,7 +3,7 @@
     <div class="inner">
       <h3 class="masthead-brand">Cover</h3>
       <nav class="nav nav-masthead justify-content-center">
-        <a :href="item.link" class="nav-link" :target="item.external ? '_blank' : '_self'" :class="{ active: item.name === current }" v-for="item in navList" :key="item.name">
+        <a @click="go(item)" class="nav-link" :target="item.external ? '_blank' : '_self'" :class="{ active: item.name === current }" v-for="item in navList" :key="item.name">
           {{ item.title }}
         </a>
       </nav>
@@ -22,10 +22,19 @@ export default {
   data () {
     return {
       navList: [
-        { name: 'home', link: '/index.html', title: 'Home' },
-        { name: 'about', link: '/about.html', title: 'About' },
+        { name: 'home', link: '/', title: 'Home' },
+        { name: 'about', link: '/about', title: 'About' },
         { name: 'contact', link: 'https://getbootstrap.com/', title: 'Contact', external: true }
       ]
+    }
+  },
+  methods: {
+    go (item) {
+      if (item.external) {
+        window.open(item.link)
+      } else {
+        this.$router.push(item.link)
+      }
     }
   }
 }
